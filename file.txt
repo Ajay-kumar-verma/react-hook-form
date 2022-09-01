@@ -1,1 +1,44 @@
-hello world !
+ useEffect(()=>{
+  clearErrors("becomeIconReason");
+  
+  console.error("zzzzzzz",isOther,finalArr.length)
+
+   if(finalArr.length===0){
+    setError("becomeIconReason", {type: "manual",message: "requireddd",}); 
+    // alert("zero"); 
+    return;
+    }
+
+
+   if(finalArr.includes('Other')){
+    // alert("aaaaj")
+     if((isOther==="" || isOther===undefined ))
+     setError("becomeIconReason", {type: "manual",message: "fill the other box ! ",});
+     } 
+     else if(finalArr.length==0){
+      setError("becomeIconReason", {type: "manual",message: "rakhi sabhan   ",});
+    } 
+  
+},[finalArr])
+
+  
+const handleReasonEvent = (e, val) => {
+  
+    clearErrors("becomeIconReason");
+//  console.error("input boxwsjlwjlj");
+
+    let checkData = new Set([...finalArr]);
+
+    { !checkData.has(val) ? checkData.add(val) : checkData.delete(val) }
+    
+    setFinalArr([...Array.from(checkData)]);
+    // console.log("allcheck data ",checkData);
+    setOther(watch("becomeIconReasonOther"))
+
+       
+ return ;
+      
+ 
+
+  };
+
